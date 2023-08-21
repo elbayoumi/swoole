@@ -24,8 +24,10 @@
                function pass () {
                 let to= document.querySelector('.to').value;
                let message= document.querySelector('.message').value;
+               let id=document.querySelector('.id').value;
                console.log(to, message);
                 socket.emit('sendmsg', {
+                    id:id,
                     too:to,
                     messages:message
                 });
@@ -37,6 +39,7 @@
        </script>
 </head>
 <body>
+    <input type="hidden" name="id" class="id" value="{{ Auth::user()->id }}">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

@@ -19,9 +19,9 @@ Websocket::on('connect', function ($websocket,Request $request) {
     session(['websocket_request' => $request]);
     var_dump($request->user());
 });
-Websocket::on('sendmsg', function ($websocket,$request) {
+Websocket::on('sendmsg', function ($websocket,$data) {
     Websocket::loginUsingId(1);
-    var_dump($request);
+    var_dump($data);
 });
 
 Websocket::on('disconnect', function ($websocket) {
